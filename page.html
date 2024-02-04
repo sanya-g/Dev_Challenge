@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hive Integrations</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Helvetica;
+            background: #fff;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            border-bottom: 1px solid #EEE;
+            background: rgba(255, 255, 255);
+            display: flex;
+            
+            justify-content: center;
+            gap: 950px;
+            align-items: center;
+            padding: 20px;
+            z-index: 1;
+        }
+
+        header img {
+            max-height: 50px;
+        }
+
+        .user-button {
+            background: transparent; 
+            border: none; 
+            padding: 0; 
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        header .user-image {
+            max-height: 50px;
+            border-radius: 50%;
+            transition: transform 0.5s ease-in-out; 
+        }
+
+        .expand {
+            transform: scale(1.2);
+        }
+
+        main {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: left;
+
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(226, 169, 252, 0.5) 0%, rgba(255, 255, 255, 0.3) 100%, rgba(255, 255, 255, 0.6) 100%);
+            color: #fff;
+            position: relative;
+            z-index: 0;
+        }
+
+        main h1 {
+            font-size: 2em;
+            margin-top: 50px;
+            margin-left: 120px;
+            padding-top: 70px;
+            color: #1A1225
+        }
+
+        .options-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .option {
+            width: 200px;
+            height: 100px;
+            margin: 20px;
+            position: relative;
+            box-sizing: border-box;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+            
+            border-radius: 8.899px;
+            border: 0.893px solid #C8C8C8;
+            background: #FEF9F8;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        main h1 {
+            font-size: 1.7em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            text-align: left;
+            font-style: normal;
+            font-weight: 400;
+            color: black;
+            left: 0;
+        }
+
+        .box-content p {
+            font-size: 0.2em;
+            color: black;
+            font-style: normal;
+            font-weight: 400;
+            margin-top: 1px;
+            margin-bottom: 5px;
+        }
+
+        .box-content h2 {
+            font-size: 0.9em; 
+            color: black;
+            font-style: normal;
+            font-weight: 400;
+            margin-top: 1px;
+            margin-bottom: 5px;
+        }
+
+        .box-content {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .logo {
+            max-height: 15px;
+            margin-top: 1px;
+        }
+
+        .connect-button {
+            background: #fff;
+            color: #000;
+            padding: 5px 20px;
+            cursor: pointer;
+            font-size: 0.3em;
+            position: absolute;
+            top: 20px; 
+            right: 15px; 
+            border-radius: 5px;
+            border: 0.893px solid #C8C8C8;
+
+            transition: background 0.7s ease-in-out, color 0.7s ease-in-out;;
+        }
+
+        .connect-button.connected {
+            background: #d4ffd5; 
+            color: #516151d9; 
+            font-size: 0.3em;
+            border: none;
+            padding: 5px 15px;
+            transform: scale(1);
+        }
+
+        footer {
+            bottom: 0;
+            left: 0;
+            width: 15%;
+            display: flex;
+            justify-content: space-between;
+            padding: 50px;
+            font-family: "Plus Jakarta Sans";
+            z-index: 0;
+        }
+
+        .button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .button.back {
+            background: #fff;
+            color: #1A1225;
+            border: 1px solid #C8C8C8;
+        }
+
+        .button.finish {
+            background: #1A1225;
+            color: #fff;
+        }
+
+        .button.back:hover{
+            background: #4caf50;
+            color: #fff;
+        }
+
+        .button.finish:hover{
+            background: #4caf50;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="img/hive.svg" alt="Hive Logo">
+        <button class="user-button" onclick="expandEffect()">
+            <img class="user-image" src="img/user.png" alt="User Image">
+        </button>
+    </header>
+    <main>
+        <h1>Connect your favorite tools.</h1>
+        <div class="options-container">
+            <div class="option">
+                <div class="box-content">
+                    <img class="logo" src="img/figma.png" alt="Figma Logo">
+                    <h2> Figma </h2>
+                    <p>Stay up to date with your team's latest designs.</p>
+                    <button class="connect-button">Connect</button>
+                </div>
+            </div>
+            <div class="option">
+                <div class="box-content">
+                    <img class="logo" src="img/drive.png" alt="Drive Logo">
+                    <h2> Google Drive </h2>
+                    <p>Access all of your documents and information.</p>
+                    <button class="connect-button">Connect</button>
+                </div>
+            </div>
+            <div class="option">
+                <div class="box-content">
+                    <img class="logo" src="img/slack.png" alt="Slack Logo">
+                    <h2> Slack </h2>
+                    <p>Communicate seamlesslessly with your teammates.</p>
+                    <button class="connect-button">Connect</button>
+                </div>
+            </div>
+            <div class="option">
+                <div class="box-content">
+                    <img class="logo" src="img/notion.png" alt="Notion Logo">
+                    <h2> Notion </h2>
+                    <p>Sync all of your notes, team docs, and other important information.</p>
+                    <button class="connect-button">Connect</button>
+                </div>
+            </div>
+            <div class="option">
+                <div class="box-content">
+                    <img class="logo" src="img/miro.png" alt="Miro Logo">
+                    <h2> Miro </h2>
+                    <p>Unlock the power of collaboration to distill insights from data.</p>
+                    <button class="connect-button">Connect</button>
+                </div>
+            </div>
+            <div class="option">
+                <div class="box-content">
+                    <img class="logo" src="img/airtable.png" alt="Airtable Logo">
+                    <h2> Airtable </h2>
+                    <p>Keep your data organized in a spreadsheet-database format.</p>
+                    <button class="connect-button">Connect</button>
+                </div>
+            </div>
+            <div class="option">
+                <div class="box-content">
+                    <img class="logo" src="img/confluence.png" alt="Confluence Logo">
+                    <h2> Confluence </h2>
+                    <p>Create content, collaborate on work, and organize and share information. </p>
+                    <button class="connect-button">Connect</button>
+                </div>
+            </div>
+            <div class="option">
+                <div class="box-content">
+                    <img class="logo" src="img/dovetail.png" alt="Dovetail Logo">
+                    <h2> Dovetail </h2>
+                    <p>Organize and tag your research in a collaborative platform.</p>
+                    <button class="connect-button">Connect</button>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <button class="button back" onclick="showAlert('Back')">Back</button>
+            <button class="button finish" onclick="showAlert('Finish')">Finish</button>            
+        </footer>
+    </main> 
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var connectButtons = document.querySelectorAll('.connect-button');
+
+            connectButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    button.classList.toggle('connected');
+                    button.textContent = button.classList.contains('connected') ? 'Connected' : 'Connect';
+                });
+            });
+        });
+
+        function expandEffect() {
+            const userImage = document.querySelector('.user-image');
+            userImage.classList.add('expand');
+
+            setTimeout(() => {
+                userImage.classList.remove('expand');
+            }, 1000); 
+        }
+
+        function showAlert(buttonText) {
+            alert(`You clicked "${buttonText}" button :)`);
+        }
+    </script>
+</body>
+</html>
